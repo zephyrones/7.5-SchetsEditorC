@@ -39,6 +39,8 @@ public class SchetsWin : Form
                                 , new LijnTool()
                                 , new RechthoekTool()
                                 , new VolRechthoekTool()
+                                , new CircleTool()
+                                , new FullCircleTool()
                                 , new TekstTool()
                                 , new GumTool()
                                 };
@@ -161,5 +163,23 @@ public class SchetsWin : Form
         foreach (string k in kleuren)
             cbb.Items.Add(k);
         cbb.SelectedIndex = 0;
+    }
+
+    private void InitializeComponent()
+    {
+            this.SuspendLayout();
+            // 
+            // SchetsWin
+            // 
+            this.ClientSize = new System.Drawing.Size(282, 253);
+            this.Name = "SchetsWin";
+            this.Load += new System.EventHandler(this.SchetsWin_Load);
+            this.ResumeLayout(false);
+
+    }
+
+    private void SchetsWin_Load(object sender, EventArgs e)
+    {
+
     }
 }

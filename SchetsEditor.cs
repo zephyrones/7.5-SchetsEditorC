@@ -22,6 +22,7 @@ public class SchetsEditor : Form
         ToolStripDropDownItem menu = new ToolStripMenuItem("File");
         menu.DropDownItems.Add("Nieuw", null, this.nieuw);
         menu.DropDownItems.Add("Exit", null, this.afsluiten);
+        menu.DropDownItems.Add("Exporteren", this.export);
         menuStrip.Items.Add(menu);
     }
     private void maakHelpMenu()
@@ -48,5 +49,17 @@ public class SchetsEditor : Form
     private void afsluiten(object sender, EventArgs e)
     {   
         this.Close();
+    }
+    private void export(object sender, EventArgs e)
+    {
+        using (Bitmap bitmap = new Bitmap(ParentForm.Size.Width, ParentForm.Size.Height))
+        {
+            using (Graphics g = Graphics.FromImage(bitmap))
+            {
+                g.CopyFromScreen(new Point(ParentForm.DesktopLocation.X, ParentForm.DesktopLocation.Y), new Point(0, 0), ParentForm.Size);
+            }
+
+            bitmap.Save(@"C:\test.jpg", ImageFormat.Jpeg);
+        }
     }
 }
