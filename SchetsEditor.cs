@@ -22,7 +22,7 @@ public class SchetsEditor : Form
         ToolStripDropDownItem menu = new ToolStripMenuItem("File");
         menu.DropDownItems.Add("Nieuw", null, this.nieuw);
         menu.DropDownItems.Add("Exit", null, this.afsluiten);
-       // menu.DropDownItems.Add("Exporteren", this.export);
+        menu.DropDownItems.Add("Exporteren",null, Schets.export);
         menuStrip.Items.Add(menu);
     }
     private void maakHelpMenu()
@@ -50,12 +50,7 @@ public class SchetsEditor : Form
     {   
         this.Close();
     }
-    /*
-    private void export(object sender, EventArgs e)
-    {
-       
-    }
-    */
+
 
     private void InitializeComponent()
     {

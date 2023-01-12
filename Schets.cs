@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.Drawing.Imaging;
 using System.Drawing;
-
 public class Schets
 {
     private Bitmap bitmap;
@@ -40,4 +40,16 @@ public class Schets
     {
         bitmap.RotateFlip(RotateFlipType.Rotate90FlipNone);
     }
+
+    private void export(object sender, EventArgs e)
+    {
+        int width = Convert.ToInt32(bitmap.Size.Width);
+        int height = Convert.ToInt32(bitmap.Size.Height);
+        using (Bitmap bitmap = new Bitmap(width, height))
+        {
+
+            bitmap.Save(@"C:\test.jpg", ImageFormat.Jpeg);
+        }
+    }
+
 }
