@@ -1,5 +1,7 @@
 using System;
 using System.Drawing;
+using System.Drawing.Imaging;
+using System.Reflection.Metadata.Ecma335;
 using System.Windows.Forms;
 
 public class SchetsEditor : Form
@@ -13,6 +15,7 @@ public class SchetsEditor : Form
         this.Controls.Add(menuStrip);
         this.maakFileMenu();
         this.maakHelpMenu();
+        this.maakExportMenu();
         this.Text = "Schets editor";
         this.IsMdiContainer = true;
         this.MainMenuStrip = menuStrip;
@@ -22,8 +25,31 @@ public class SchetsEditor : Form
         ToolStripDropDownItem menu = new ToolStripMenuItem("File");
         menu.DropDownItems.Add("Nieuw", null, this.nieuw);
         menu.DropDownItems.Add("Exit", null, this.afsluiten);
-        menu.DropDownItems.Add("Exporteren",null, Schets.export);
         menuStrip.Items.Add(menu);
+    }
+
+    private void maakExportMenu()
+    {
+        ToolStripDropDownItem menu = new ToolStripMenuItem("Exporteren");
+        menu.DropDownItems.Add("JPG", null, this.Jpg);
+        menu.DropDownItems.Add("PNG", null, this.Png);
+        menu.DropDownItems.Add("BMP", null, this.Bmp);
+        menuStrip.Items.Add(menu);
+    }
+
+    private void Jpg(object o, EventArgs ea)
+    {
+        Bitmap bitmap = Schets.bitmap;
+        bitmap.Save("C:/img.jpg", ImageFormat.Jpeg);
+    }
+
+    private void Png(object o, EventArgs ea)
+    {
+
+    }
+    private void Bmp(object o, EventArgs ea)
+    {
+
     }
     private void maakHelpMenu()
     {   
@@ -52,6 +78,8 @@ public class SchetsEditor : Form
     }
 
 
+
+    
     private void InitializeComponent()
     {
             this.SuspendLayout();
