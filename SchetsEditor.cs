@@ -40,16 +40,18 @@ public class SchetsEditor : Form
     private void Jpg(object o, EventArgs ea)
     {
         Bitmap bitmap = Schets.bitmap;
-        bitmap.Save("C:/img.jpg", ImageFormat.Jpeg);
+        bitmap.Save("C:\\Users\\Public\\Pictures\\img.jpg", ImageFormat.Jpeg);
     }
-
+   
     private void Png(object o, EventArgs ea)
     {
-
+        Bitmap bitmap = Schets.bitmap;
+        bitmap.Save("C:\\Users\\Public\\Pictures\\img.png", ImageFormat.Png);
     }
     private void Bmp(object o, EventArgs ea)
     {
-
+        Bitmap bitmap = Schets.bitmap;
+        bitmap.Save("C:\\Users\\Public\\Pictures\\img.bmp", ImageFormat.Bmp);
     }
     private void maakHelpMenu()
     {   
