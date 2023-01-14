@@ -15,7 +15,6 @@ public class SchetsEditor : Form
         this.Controls.Add(menuStrip);
         this.maakFileMenu();
         this.maakHelpMenu();
-        this.maakExportMenu();
         this.Text = "Schets editor";
         this.IsMdiContainer = true;
         this.MainMenuStrip = menuStrip;
@@ -28,31 +27,8 @@ public class SchetsEditor : Form
         menuStrip.Items.Add(menu);
     }
 
-    private void maakExportMenu()
-    {
-        ToolStripDropDownItem menu = new ToolStripMenuItem("Exporteren");
-        menu.DropDownItems.Add("JPG", null, this.Jpg);
-        menu.DropDownItems.Add("PNG", null, this.Png);
-        menu.DropDownItems.Add("BMP", null, this.Bmp);
-        menuStrip.Items.Add(menu);
-    }
-
-    private void Jpg(object o, EventArgs ea)
-    {
-        Bitmap bitmap = Schets.bitmap;
-        bitmap.Save("C:\\Users\\Public\\Pictures\\img.jpg", ImageFormat.Jpeg);
-    }
-   
-    private void Png(object o, EventArgs ea)
-    {
-        Bitmap bitmap = Schets.bitmap;
-        bitmap.Save("C:\\Users\\Public\\Pictures\\img.png", ImageFormat.Png);
-    }
-    private void Bmp(object o, EventArgs ea)
-    {
-        Bitmap bitmap = Schets.bitmap;
-        bitmap.Save("C:\\Users\\Public\\Pictures\\img.bmp", ImageFormat.Bmp);
-    }
+  
+    
     private void maakHelpMenu()
     {   
         ToolStripDropDownItem menu = new ToolStripMenuItem("Help");
